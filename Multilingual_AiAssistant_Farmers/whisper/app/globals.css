@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Light Mode Colors - soft natural greens and creams */
+:root {
+  --background: #fdfaf6;              /* Warm off-white */
+  --foreground: #2a4d14;              /* Dark forest green */
+  --card: #e8f0db;                    /* Pale sage green background */
+  --card-foreground: #244314;         /* Darker green text */
+  --primary: #4b7a20;                 /* Vibrant grass green */
+  --primary-foreground: #f4f9f4;      /* Very light green text */
+  --secondary: #90ad50;               /* Olive green accent */
+  --secondary-foreground: #304814;
+  --muted: #d8e4bf;                  /* Pale muted green */
+  --muted-foreground: #627c3b;
+  --accent: #679436;                 /* Medium green */
+  --accent-foreground: #f4f9f4;
+  --destructive: #e67c6b;            /* Soft coral for warnings */
+  --destructive-foreground: #703029;
+  --border: #bfcca1;                 /* Light olive border */
+  --input: #f7faf3;                  /* Soft cream input background */
+  --ring: #81b26b;                  /* Green focus ring */
+  --radius: 0.75rem;
+}
+
+/* Dark mode - gentle muted greens for night */
+.dark {
+  --background: #37472f;
+  --foreground: #d9ecd9;
+  --card: #2d3c21;
+  --card-foreground: #a2c476;
+  --primary: #73a83b;
+  --primary-foreground: #ebf2e6;
+  --secondary: #5f7a30;
+  --secondary-foreground: #d9ecd9;
+  --muted: #536530;
+  --muted-foreground: #9bb170;
+  --accent: #7a9e3f;
+  --accent-foreground: #ebf2e6;
+  --destructive: #bb6f64;
+  --destructive-foreground: #f0dedb;
+  --border: #72825f;
+  --input: #3b4c23;
+  --ring: #8ab34e;
+}
+
+/* Theme variables to use in Tailwind or inline styles */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+}
+
+/* Base styles applied via Tailwind utility classes */
+@layer base {
+  * {
+    @apply border-border outline-ring/50 transition-colors duration-300 ease-in-out;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  input,
+  textarea,
+  select,
+  button {
+    @apply rounded-lg border px-4 py-2 bg-input text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow;
+  }
+  /* Smooth shadows and subtle hover effects for buttons */
+  button:hover {
+    @apply shadow-md shadow-primary/30;
+  }
+}
+
+/* Responsive container utility */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 100%;
+  @screen sm {
+    padding-inline: 2rem;
+  }
+  @screen md {
+    max-width: 768px;
+  }
+  @screen lg {
+    max-width: 1024px;
+  }
+  @screen xl {
+    max-width: 1280px;
+  }
+}
+
+/* Animation examples using tailwindcss-animate plugin */
+@layer utilities {
+  /* Fade-in and slide-up effect */
+  .fade-slide-in {
+    @apply animate-fade-in-up;
+  }
+
+  /* Pulsing glowing effect on primary buttons */
+  .pulse-glow {
+    @apply animate-pulse;
+  }
+}
