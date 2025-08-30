@@ -33,7 +33,7 @@ for interactive, voice-driven conversations.
 
 Clone the repo and install dependencies:
 
-git clone <your-repository-url> cd your-project-name npm install
+git clone <https://github.com/asiyaattar/India-Accelerator-OpenXAI-2025/tree/my-feature-branch/Multilingual_AiAssistant_Farmers/whisper> npm install
 
 Run the development server:
 
